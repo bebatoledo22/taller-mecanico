@@ -1,8 +1,18 @@
 class Vehiculo: # Define la clase Vehiculo
     def __init__(self, patente: str, anio: int): # Constructor que recibe patente y año al crear el objeto
-        self.__patente: str = patente # Asigna la patente recibida a un atributo privado
+        self.patente = patente # Asigna mediante el setter para que la validación se ejecute al crear el objeto
         self.__anio: int = anio # Asigna el año recibido a un atributo privado
         self.__en_taller: bool = False # Inicializa el estado en False (no está en el taller por defecto) como privado
+
+    @property
+    def patente(self) -> str: # Getter para obtener la patente
+        return self.__patente # Retorna el valor del atributo privado __patente
+
+    @patente.setter
+    def patente(self, patente: str) -> None: # Setter con validación para asignar la patente
+        if not isinstance(patente, str) or len(patente) < 6 or " " in patente: # Valida que tenga al menos 6 caracteres y no contenga espacios
+            raise ValueError("La patente debe tener al menos 6 caracteres y no debe contener espacios.") # Lanza ValueError si no cumple
+        self.__patente: str = patente # Asigna el valor validado al atributo privado
 
     def ingresar(self) -> str: # Método para registrar el ingreso del vehículo al taller
         if self.__en_taller: # Verifica si el vehículo ya está marcado como dentro del taller
