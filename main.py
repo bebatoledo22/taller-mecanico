@@ -1,13 +1,18 @@
-from vehiculo import Vehiculo # Importa la clase Vehiculo desde el archivo local vehiculo.py
+from auto import Auto # Importa la subclase Auto
+from camion import Camion # Importa la subclase Camion
+from moto import Moto # Importa la subclase Moto
 
-vehiculo1 = Vehiculo("AB1234", 2018) # Instancia el primer objeto Vehiculo pasándole su patente y año
-vehiculo2 = Vehiculo("CD5678", 2020) # Instancia el segundo objeto Vehiculo pasándole su patente y año
-vehiculo3 = Vehiculo("EF9012", 2023) # Instancia el tercer objeto Vehiculo pasándole su patente y año
+# Instanciación de objetos de cada tipo de vehículo
+auto1 = Auto("AB1234", 2020, 4) # Auto con patente, año y 4 puertas
+camion1 = Camion("CD5678", 2018, 12.5) # Camión con patente, año y capacidad de 12.5 toneladas
+moto1 = Moto("EF9012", 2023, 250) # Moto con patente, año y 250 cc
 
-print(vehiculo1.ingresar()) # Ejecuta ingresar() del primer vehículo y muestra el texto retornado en consola
-print(vehiculo2.ingresar()) # Ejecuta ingresar() del segundo vehículo y muestra el texto retornado en consola
-print(vehiculo3.ingresar()) # Ejecuta ingresar() del tercer vehículo y muestra el texto retornado en consola
+# Registro de ingreso al taller
+print(auto1.ingresar()) # Ingreso del auto
+print(camion1.ingresar()) # Ingreso del camión
+print(moto1.ingresar()) # Ingreso de la moto
 
-print(f"Tarifa por hora del primer vehículo: ${vehiculo1.tarifa_hora()}") # Concatena e imprime la tarifa retornada por el primer vehículo
-print(f"Tarifa por hora del segundo vehículo: ${vehiculo2.tarifa_hora()}") # Concatena e imprime la tarifa retornada por el segundo vehículo
-print(f"Tarifa por hora del tercer vehículo: ${vehiculo3.tarifa_hora()}") # Concatena e imprime la tarifa retornada por el tercer vehículo
+# Impresión de tarifas diferenciadas y atributos propios
+print(f"Tarifa Auto ({auto1.get_cantidad_puertas()} puertas): ${auto1.tarifa_hora()}/hora")
+print(f"Tarifa Camión ({camion1.get_capacidad_toneladas()} toneladas): ${camion1.tarifa_hora()}/hora")
+print(f"Tarifa Moto ({moto1.get_cilindrada()} cc): ${moto1.tarifa_hora()}/hora")
