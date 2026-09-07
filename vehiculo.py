@@ -14,6 +14,10 @@ class Vehiculo: # Define la clase Vehiculo
             raise ValueError("La patente debe tener al menos 6 caracteres y no debe contener espacios.") # Lanza ValueError si no cumple
         self.__patente: str = patente # Asigna el valor validado al atributo privado
 
+    @property
+    def anio(self) -> int: # Getter para obtener el año del vehículo
+        return self.__anio # Retorna el valor del atributo privado __anio
+
     def ingresar(self) -> str: # Método para registrar el ingreso del vehículo al taller
         if self.__en_taller: # Verifica si el vehículo ya está marcado como dentro del taller
             return "El vehículo ya se encuentra en el taller." # Devuelve mensaje si ya estaba ingresado
